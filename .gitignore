@@ -1,0 +1,12 @@
+.committed
+CVS
+junk*
+.merkle
+.posted
+.svn*
+*.swp
+.wrapped
+*ZZZ
+*.[oa]
+*~
+.sharedev
