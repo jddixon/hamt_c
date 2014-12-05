@@ -1,0 +1,7 @@
+hamt_c/README.jdd
+
+At the moment I am using 
+    
+    http://mij.oltrelinux.com/devel/autoconf-automake/
+
+as a guide to automate-ing the hamt_c build.
