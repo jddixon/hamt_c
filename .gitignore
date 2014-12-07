@@ -11,3 +11,4 @@ junk*
 *~
 .sharedev
 autom4te.cache
+*.go
