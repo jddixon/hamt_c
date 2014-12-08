@@ -61,10 +61,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/hamt_c
-pkgincludedir = $(includedir)/hamt_c
-pkglibdir = $(libdir)/hamt_c
-pkglibexecdir = $(libexecdir)/hamt_c
+pkgdatadir = $(datadir)/hamt
+pkgincludedir = $(includedir)/hamt
+pkglibdir = $(libdir)/hamt
+pkglibexecdir = $(libexecdir)/hamt
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -91,6 +91,7 @@ am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
+CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
@@ -123,16 +124,16 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(bindir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 libhamt_la_LIBADD =
-am_libhamt_la_OBJECTS =
+am_libhamt_la_OBJECTS = hamt.lo
 libhamt_la_OBJECTS = $(am_libhamt_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
 am__v_lt_1 = 
 PROGRAMS = $(bin_PROGRAMS)
-am_main_OBJECTS = main.$(OBJEXT)
-main_OBJECTS = $(am_main_OBJECTS)
-main_DEPENDENCIES = libhamt.la
+main_SOURCES = main.c
+main_OBJECTS = main.$(OBJEXT)
+main_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -145,7 +146,7 @@ AM_V_at = $(am__v_at_$(V))
 am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERBOSITY))
 am__v_at_0 = @
 am__v_at_1 = 
-DEFAULT_INCLUDES = -I.
+DEFAULT_INCLUDES = -I. -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
@@ -167,8 +168,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libhamt_la_SOURCES) $(main_SOURCES)
-DIST_SOURCES = $(libhamt_la_SOURCES) $(main_SOURCES)
+SOURCES = $(libhamt_la_SOURCES) main.c
+DIST_SOURCES = $(libhamt_la_SOURCES) main.c
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -194,23 +195,21 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/jdd/dev/c/hamt_c/missing aclocal-1.14
+ACLOCAL = aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/jdd/dev/c/hamt_c/missing autoconf
-AUTOHEADER = ${SHELL} /home/jdd/dev/c/hamt_c/missing autoheader
-AUTOMAKE = ${SHELL} /home/jdd/dev/c/hamt_c/missing automake-1.14
+AUTOCONF = autoconf
+AUTOHEADER = autoheader
+AUTOMAKE = automake-1.14
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-
-# flags to pass to the C compiler and linker
-CFLAGS = --pedantic -Wall -std=c99 -O2
+CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"hamt_c\" -DPACKAGE_TARNAME=\"hamt_c\" -DPACKAGE_VERSION=\"0.0.0\" -DPACKAGE_STRING=\"hamt_c\ 0.0.0\" -DPACKAGE_BUGREPORT=\"hamt-dev\ at\ xlattice\ dot\ org\" -DPACKAGE_URL=\"\" -DPACKAGE=\"hamt_c\" -DVERSION=\"0.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\"
+DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
 DLLTOOL = false
 DSYMUTIL = 
@@ -228,14 +227,14 @@ INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /usr/bin/ld -m elf_x86_64
-LDFLAGS = -lm
+LDFLAGS = 
 LIBOBJS = 
 LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/jdd/dev/c/hamt_c/missing makeinfo
+MAKEINFO = makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -244,11 +243,11 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
-PACKAGE = hamt_c
+PACKAGE = hamt
 PACKAGE_BUGREPORT = hamt-dev at xlattice dot org
-PACKAGE_NAME = hamt_c
-PACKAGE_STRING = hamt_c 0.0.0
-PACKAGE_TARNAME = hamt_c
+PACKAGE_NAME = hamt
+PACKAGE_STRING = hamt 0.0.0
+PACKAGE_TARNAME = hamt
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.0.0
 PATH_SEPARATOR = :
@@ -290,7 +289,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/jdd/dev/c/hamt_c/install-sh
+install_sh = ${SHELL} /home/jdd/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -310,10 +309,15 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
+
+# flags to pass to the C compiler and linker
+# dropped --pedantic
+AM_CFLAGS = -Wall -std=c99 -O2
 lib_LTLIBRARIES = libhamt.la
-libhamt_la_SOURCES = hamt.h
-main_SOURCES = main.c
-main_LDADD = libhamt.la
+
+#main_SOURCES = main.c
+#main_LDADD = libhamt.la
+libhamt_la_SOURCES = hamt.c hamt.h
 all: all-am
 
 .SUFFIXES:
@@ -327,9 +331,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu src/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu src/Makefile
+	  $(AUTOMAKE) --foreign src/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -446,6 +450,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/hamt.Plo
 include ./$(DEPDIR)/main.Po
 
 .c.o:
@@ -685,6 +690,14 @@ uninstall-am: uninstall-binPROGRAMS uninstall-libLTLIBRARIES
 	tags tags-am uninstall uninstall-am uninstall-binPROGRAMS \
 	uninstall-libLTLIBRARIES
 
+
+%.o:	%.c
+	gcc -c $(AM_CFLAGS) -o $@ $<
+
+%.lo:	%.c
+	gcc -c $(CFLAGS) $(AM_CFLAGS) -o $*.o  $<
+	gcc -c $(CFLAGS) $(AM_CFLAGS) -fPIC -o $*.pic.o $<
+	touch $@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

@@ -1,4 +1,5 @@
 hamt_c/TODO
 
-2014-12-04
-    *
+2014-12-08
+    * FIX: build fails following check model (hamt.la has to 
+        be built from hamt.lo, which libtools rejects)

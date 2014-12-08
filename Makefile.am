@@ -1,3 +1,3 @@
 AUTOMAKE_OPTIONS = foreign
-SUBDIRS = src . tests doc examples man scripts 
+SUBDIRS = src . doc examples man scripts tests
 ACLOCAL_AMFLAGS = -I m4

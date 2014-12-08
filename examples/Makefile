@@ -60,10 +60,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/hamt_c
-pkgincludedir = $(includedir)/hamt_c
-pkglibdir = $(libdir)/hamt_c
-pkglibexecdir = $(libexecdir)/hamt_c
+pkgdatadir = $(datadir)/hamt
+pkgincludedir = $(includedir)/hamt
+pkglibdir = $(libdir)/hamt
+pkglibexecdir = $(libexecdir)/hamt
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -88,6 +88,7 @@ am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
+CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 AM_V_P = $(am__v_P_$(V))
@@ -140,13 +141,13 @@ am__installdirs = "$(DESTDIR)$(exampledir)"
 DATA = $(example_DATA)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/jdd/dev/c/hamt_c/missing aclocal-1.14
+ACLOCAL = aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} /home/jdd/dev/c/hamt_c/missing autoconf
-AUTOHEADER = ${SHELL} /home/jdd/dev/c/hamt_c/missing autoheader
-AUTOMAKE = ${SHELL} /home/jdd/dev/c/hamt_c/missing automake-1.14
+AUTOCONF = autoconf
+AUTOHEADER = autoheader
+AUTOMAKE = automake-1.14
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -154,7 +155,7 @@ CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"hamt_c\" -DPACKAGE_TARNAME=\"hamt_c\" -DPACKAGE_VERSION=\"0.0.0\" -DPACKAGE_STRING=\"hamt_c\ 0.0.0\" -DPACKAGE_BUGREPORT=\"hamt-dev\ at\ xlattice\ dot\ org\" -DPACKAGE_URL=\"\" -DPACKAGE=\"hamt_c\" -DVERSION=\"0.0.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\"
+DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
 DLLTOOL = false
 DSYMUTIL = 
@@ -179,7 +180,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/jdd/dev/c/hamt_c/missing makeinfo
+MAKEINFO = makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -188,11 +189,11 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
-PACKAGE = hamt_c
+PACKAGE = hamt
 PACKAGE_BUGREPORT = hamt-dev at xlattice dot org
-PACKAGE_NAME = hamt_c
-PACKAGE_STRING = hamt_c 0.0.0
-PACKAGE_TARNAME = hamt_c
+PACKAGE_NAME = hamt
+PACKAGE_STRING = hamt 0.0.0
+PACKAGE_TARNAME = hamt
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.0.0
 PATH_SEPARATOR = :
@@ -234,7 +235,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/jdd/dev/c/hamt_c/install-sh
+install_sh = ${SHELL} /home/jdd/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -254,7 +255,7 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-exampledir = $(datarootdir)/doc/hamt_c
+exampledir = $(datarootdir)/doc/hamt
 example_DATA = sample1.dat
 all: all-am
 
@@ -268,9 +269,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu examples/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign examples/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu examples/Makefile
+	  $(AUTOMAKE) --foreign examples/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
