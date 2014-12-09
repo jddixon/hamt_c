@@ -130,10 +130,13 @@ AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+libhamt_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(libhamt_la_LDFLAGS) $(LDFLAGS) -o $@
 PROGRAMS = $(bin_PROGRAMS)
-main_SOURCES = main.c
-main_OBJECTS = main.$(OBJEXT)
-main_LDADD = $(LDADD)
+am_main_OBJECTS = main.$(OBJEXT)
+main_OBJECTS = $(am_main_OBJECTS)
+main_DEPENDENCIES = libhamt.la
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -168,8 +171,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libhamt_la_SOURCES) main.c
-DIST_SOURCES = $(libhamt_la_SOURCES) main.c
+SOURCES = $(libhamt_la_SOURCES) $(main_SOURCES)
+DIST_SOURCES = $(libhamt_la_SOURCES) $(main_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -221,6 +224,7 @@ EGREP = /bin/grep -E
 EXEEXT = 
 FGREP = /bin/grep -F
 GREP = /bin/grep
+HAMT_LD_VERSION = 
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
@@ -313,11 +317,20 @@ top_srcdir = ..
 # flags to pass to the C compiler and linker
 # dropped --pedantic
 AM_CFLAGS = -Wall -std=c99 -O2
+# our 'primary':
 lib_LTLIBRARIES = libhamt.la
 
-#main_SOURCES = main.c
-#main_LDADD = libhamt.la
+# This builds a .so:
 libhamt_la_SOURCES = hamt.c hamt.h
+
+# This works, but the major/minor/micro numbers are interpreted as
+# current/age/revision.
+#libhamt_la_LDFLAGS = -version-info 
+
+# The line above stopped working; this one still works:
+libhamt_la_LDFLAGS = -version-info 0:0:0
+main_SOURCES = main.c
+main_LDADD = libhamt.la
 all: all-am
 
 .SUFFIXES:
@@ -389,7 +402,7 @@ clean-libLTLIBRARIES:
 	}
 
 libhamt.la: $(libhamt_la_OBJECTS) $(libhamt_la_DEPENDENCIES) $(EXTRA_libhamt_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(LINK) -rpath $(libdir) $(libhamt_la_OBJECTS) $(libhamt_la_LIBADD) $(LIBS)
+	$(AM_V_CCLD)$(libhamt_la_LINK) -rpath $(libdir) $(libhamt_la_OBJECTS) $(libhamt_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	@list='$(bin_PROGRAMS)'; test -n "$(bindir)" || list=; \
@@ -690,14 +703,6 @@ uninstall-am: uninstall-binPROGRAMS uninstall-libLTLIBRARIES
 	tags tags-am uninstall uninstall-am uninstall-binPROGRAMS \
 	uninstall-libLTLIBRARIES
 
-
-%.o:	%.c
-	gcc -c $(AM_CFLAGS) -o $@ $<
-
-%.lo:	%.c
-	gcc -c $(CFLAGS) $(AM_CFLAGS) -o $*.o  $<
-	gcc -c $(CFLAGS) $(AM_CFLAGS) -fPIC -o $*.pic.o $<
-	touch $@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

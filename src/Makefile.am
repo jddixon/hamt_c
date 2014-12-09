@@ -2,20 +2,20 @@
 # dropped --pedantic
 AM_CFLAGS = -Wall -std=c99 -O2
 
-%.o:	%.c
-	gcc -c $(AM_CFLAGS) -o $@ $<
-
-%.lo:	%.c
-	gcc -c $(CFLAGS) $(AM_CFLAGS) -o $*.o  $<
-	gcc -c $(CFLAGS) $(AM_CFLAGS) -fPIC -o $*.pic.o $<
-	touch $@
-
 bin_PROGRAMS = main
+# our 'primary':
 lib_LTLIBRARIES = libhamt.la
 
-#main_SOURCES = main.c
-#main_LDADD = libhamt.la
-
+# This builds a .so:
 libhamt_la_SOURCES = hamt.c hamt.h
 
+# This works, but the major/minor/micro numbers are interpreted as
+# current/age/revision.
+#libhamt_la_LDFLAGS = -version-info @HAMT_LD_VERSION@
+
+# The line above stopped working; this one still works:
+libhamt_la_LDFLAGS = -version-info 0:0:0
+
+main_SOURCES = main.c
+main_LDADD = libhamt.la
 

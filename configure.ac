@@ -3,7 +3,18 @@
 
 AC_PREREQ([2.69])
 
+# -------------------------------------------------------------------
+# TEST: 7.5.3 where it should be 0.0.0.  However, this is interpreted as
+# current = 7, age = 3, revision = 5
+HAMT_MAJOR_VERSION="7"
+HAMT_MINOR_VERSION="5"
+HAMT_MICRO_VERSION="3"
+HAMT_LD_VERSION="$HAMT_MAJOR_VERSION:$HAMT_MINOR_VERSION:$HAMT_MICRO_VERSION"
+AC_SUBST(HAMT_LD_VERSION)
+# -------------------------------------------------------------------
+
 m4_define([hamt_major_version],[0])
+#m4_define([hamt_major_version],[HAMT_MAJOR_VERSION])
 m4_define([hamt_minor_version],[0])
 m4_define([hamt_micro_version],[0])
 m4_define([hamt_version],

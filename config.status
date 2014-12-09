@@ -935,6 +935,7 @@ S["PACKAGE_TARNAME"]="hamt"
 S["PACKAGE_NAME"]="hamt"
 S["PATH_SEPARATOR"]=":"
 S["SHELL"]="/bin/bash"
+S["HAMT_LD_VERSION"]=""
 _ACAWK
 cat >>"$ac_tmp/subs1.awk" <<_ACAWK &&
   for (key in S) S_is_set[key] = 1
