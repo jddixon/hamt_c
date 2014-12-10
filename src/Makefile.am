@@ -3,18 +3,20 @@
 AM_CFLAGS = -Wall -std=c99 -O2
 
 bin_PROGRAMS = main
-# our 'primary':
+
+# list of libraries to build
 lib_LTLIBRARIES = libhamt.la
 
-# This builds a .so:
+# This library's dependencies.
 libhamt_la_SOURCES = hamt.c hamt.h
+# This header is public and needed to use the library
+include_HEADERS = hamt.h
 
-# This works, but the major/minor/micro numbers are interpreted as
-# current/age/revision.
+# See VERSIONING in configure.am for an explanation of how the library
+# version number is handled.
+
 #libhamt_la_LDFLAGS = -version-info @HAMT_LD_VERSION@
-
-# The line above stopped working; this one still works:
-libhamt_la_LDFLAGS = -version-info 0:0:0
+libhamt_la_LDFLAGS = -version-info '0:0:0'
 
 main_SOURCES = main.c
 main_LDADD = libhamt.la

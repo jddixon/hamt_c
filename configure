@@ -566,6 +566,7 @@ as_tr_sh="eval sed 'y%*+%pp%;s%[^_$as_cr_alnum]%_%g'"
 
 SHELL=${CONFIG_SHELL-/bin/sh}
 
+ac_unique_file="src/Makefile.am"
 
 test -n "$DJDIR" || exec 7<&0 </dev/null
 exec 6>&1
