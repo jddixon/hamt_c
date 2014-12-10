@@ -214,6 +214,10 @@ CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
+CXX = g++
+CXXCPP = g++ -E
+CXXDEPMODE = depmode=gcc3
+CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -226,8 +230,14 @@ ECHO_T =
 EGREP = /bin/grep -E
 EXEEXT = 
 FGREP = /bin/grep -F
+GEEP1 = 
+GEEP2 = geep2
+GEEP3 = geep3
+GEEP4 = geep4 value
+GEEP5 = 
+GEEP7 = geep7
 GREP = /bin/grep
-HAMT_LD_VERSION = 
+HAMT_LD_VERSION = 3:2:1
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
@@ -236,7 +246,7 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
 LIBOBJS = 
-LIBS = 
+LIBS = -lm 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
@@ -270,6 +280,7 @@ abs_top_builddir = /home/jdd/dev/c/hamt_c
 abs_top_srcdir = /home/jdd/dev/c/hamt_c
 ac_ct_AR = ar
 ac_ct_CC = gcc
+ac_ct_CXX = g++
 ac_ct_DUMPBIN = 
 am__include = include
 am__leading_dot = .
@@ -331,9 +342,9 @@ include_HEADERS = hamt.h
 
 # See VERSIONING in configure.am for an explanation of how the library
 # version number is handled.
+libhamt_la_LDFLAGS = -version-info 3:2:1
 
-#libhamt_la_LDFLAGS = -version-info 
-libhamt_la_LDFLAGS = -version-info '0:0:0'
+# XXX THIS IS UNNECESSARY AND WRONG:
 main_SOURCES = main.c
 main_LDADD = libhamt.la
 all: all-am

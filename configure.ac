@@ -3,10 +3,23 @@
 
 AC_PREREQ([2.69])
 
-# make sure we are in the right directory
-AC_CONFIG_SRCDIR([src/Makefile.am])
+# PACKAGE VERSION ###################################################
+# Set the package version here.  The library version data is in a 
+# separate section, below.
+#
+m4_define([hamt_major_version],[0])
+m4_define([hamt_minor_version],[0])
+m4_define([hamt_micro_version],[0])
+m4_define([hamt_version],
+          [hamt_major_version.hamt_minor_version.hamt_micro_version])
+
+# INITIALIZATION ####################################################
+
+AC_INIT([hamt], [hamt_version], [hamt-dev at xlattice dot org])
 
 # LIBRARY VERSIONING ################################################
+# 
+# This section must follow AC_INIT
 #
 # See https://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
 #
@@ -21,24 +34,39 @@ AC_CONFIG_SRCDIR([src/Makefile.am])
 # between CURRENT - AGE and CURRENT, inclusive.
 # 
 # Given these rules, AGE may not exceed CURRENT.
+#
+# SET THE LIBRARY VERSION HERE:
+HAMT_CURRENT='0'    # increment if interface changed or deleted, zero others
+HAMT_REVISION='0'   # increment revision and age if interface added and
+HAMT_AGE='0'        #   none changed or deleted
 
-HAMT_CURRENT="0" 
-HAMT_REVISION="0"     
-HAMT_AGE="0"     
 HAMT_LD_VERSION="$HAMT_CURRENT:$HAMT_REVISION:$HAMT_AGE"
-AC_SUBST(HAMT_LD_VERSION)
+AC_SUBST([HAMT_LD_VERSION])
 
-# PACKAGE VERSION ###################################################
+# XXX PLAYING AROUND XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# works
+GEEP2='geep2'
+AC_SUBST([GEEP2]) 
 
-m4_define([hamt_major_version],[0])
-m4_define([hamt_minor_version],[0])
-m4_define([hamt_micro_version],[0])
-m4_define([hamt_version],
-          [hamt_major_version.hamt_minor_version.hamt_micro_version])
+# works
+GEEP3="geep3"
+AC_SUBST(GEEP3)
 
-# INITIALIZATION ####################################################
+# This works:
+GEEP4='geep4 value'
+AC_SUBST([GEEP4])
 
-AC_INIT([hamt], [hamt_version], [hamt-dev at xlattice dot org])
+# works
+AC_SUBST([GEEP5], [geep5 value])
+
+# works
+GEEP7=[geep7]
+AC_SUBST(m4_toupper(GEEP7))
+# XXX END PLAY  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+# make sure we are in the right directory
+AC_CONFIG_SRCDIR([config.h.in])
+AC_CONFIG_HEADERS([config.h])
 
 AM_PROG_AR
 LT_INIT()
@@ -53,25 +81,37 @@ AM_INIT_AUTOMAKE([-Wall foreign 1.11.2])
 AC_PROG_CC
 AC_PROG_LIBTOOL
 
+AC_PROG_CXX
+AC_PROG_AWK
+AC_PROG_CC
+AC_PROG_CPP
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+AC_PROG_RANLIB
+
 # Checks for libraries.
-AM_PROG_CC_C_O
+
+# FIXME: Replace `main' with a function in `-lm':
+AC_CHECK_LIB([m], [main])
 
 # Checks for header files.
 AC_HEADER_STDC
-AC_CHECK_HEADERS([stdlib.h])
+AC_CHECK_HEADERS([stdint.h stdlib.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
+AC_CHECK_HEADER_STDBOOL
+AC_TYPE_UINT32_T
+AC_TYPE_UINT64_T
 
 # Checks for library functions.
 
-# Output files
-AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_FILES([Makefile
+                 doc/Makefile
+                 examples/Makefile
+                 man/Makefile
+                 scripts/Makefile
+                 src/Makefile
+                 tests/Makefile])
 
-AC_OUTPUT(Makefile 
-          src/Makefile 
-          doc/Makefile 
-          examples/Makefile 
-          man/Makefile 
-          scripts/Makefile 
-          tests/Makefile)
-
+AC_OUTPUT

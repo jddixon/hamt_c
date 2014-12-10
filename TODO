@@ -2,9 +2,8 @@ hamt_c/TODO
 
 2014-12-09
     * update ~/dev/update_project_gitignore
-    * FIX: HAMT_LD_VERSION is empty string, so linking fails
-        - do a recursive grep on HAMT_LD_VERSION 
+    * FIX: HAMT_LD_VERSION is empty string, so linking fails            * DONE
 
 2014-12-08
-    * FIX: build fails following check model (hamt.la has to 
-        be built from hamt.lo, which libtools rejects)
+    * FIX: build fails following check model (hamt.la has to            * DONE
+        be built from hamt.lo, which libtools rejects)                  * DONE
