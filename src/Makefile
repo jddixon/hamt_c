@@ -230,14 +230,8 @@ ECHO_T =
 EGREP = /bin/grep -E
 EXEEXT = 
 FGREP = /bin/grep -F
-GEEP1 = 
-GEEP2 = geep2
-GEEP3 = geep3
-GEEP4 = geep4 value
-GEEP5 = 
-GEEP7 = geep7
 GREP = /bin/grep
-HAMT_LD_VERSION = 3:2:1
+HAMT_LD_VERSION = 0:0:0
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
@@ -263,17 +257,17 @@ OTOOL64 =
 PACKAGE = hamt
 PACKAGE_BUGREPORT = hamt-dev at xlattice dot org
 PACKAGE_NAME = hamt
-PACKAGE_STRING = hamt 0.0.0
+PACKAGE_STRING = hamt 1.3.3
 PACKAGE_TARNAME = hamt
 PACKAGE_URL = 
-PACKAGE_VERSION = 0.0.0
+PACKAGE_VERSION = 1.3.3
 PATH_SEPARATOR = :
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = strip
-VERSION = 0.0.0
+VERSION = 1.3.3
 abs_builddir = /home/jdd/dev/c/hamt_c/src
 abs_srcdir = /home/jdd/dev/c/hamt_c/src
 abs_top_builddir = /home/jdd/dev/c/hamt_c
@@ -342,7 +336,7 @@ include_HEADERS = hamt.h
 
 # See VERSIONING in configure.am for an explanation of how the library
 # version number is handled.
-libhamt_la_LDFLAGS = -version-info 3:2:1
+libhamt_la_LDFLAGS = -version-info 0:0:0
 
 # XXX THIS IS UNNECESSARY AND WRONG:
 main_SOURCES = main.c

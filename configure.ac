@@ -4,65 +4,83 @@
 AC_PREREQ([2.69])
 
 # PACKAGE VERSION ###################################################
-# Set the package version here.  The library version data is in a 
-# separate section, below.
+
+# This is not the library version info, which is set separately and 
+# generally much less frequently.
+
+# The minor version number should be stepped whenever the interface changes, 
+# and the micro number is then set to zero.  That is, this can be seen as
+# a count of minor revisions to the current API.
 #
+# Where bug fixes and other code changes do not affect the package interface, 
+# the minor version number is left unchanged and the micro number is stepped.
+# In other words, the micro version number can usually be interpreted as a 
+# count of bugs found in the current revision.
+# 
+# When there is a major change to the package API the major version number is 
+# incremented and the minor and micro version numbers are set to zero.
+
+# SET THE PACKAGE VERSION HERE ############################
 m4_define([hamt_major_version],[0])
 m4_define([hamt_minor_version],[0])
 m4_define([hamt_micro_version],[0])
+# #########################################################
+
 m4_define([hamt_version],
           [hamt_major_version.hamt_minor_version.hamt_micro_version])
 
+# This approach doesn't work --------------------
+# HAMT_MAJOR_VERSION=1
+# HAMT_MINOR_VERSION=2
+# HAMT_MICRO_VERSION=3
+# hv = $HAMT_MAJOR_VERSION.$HAMT_MINOR_VERSION.$HAMT_MICRO_VERSION
+# hamt_version = '$hv'
+# END not yet -----------------------------------
+
 # INITIALIZATION ####################################################
+
+# This must be called before doing anything that produces output, and
+# so before any AC_SUBST
 
 AC_INIT([hamt], [hamt_version], [hamt-dev at xlattice dot org])
 
 # LIBRARY VERSIONING ################################################
 # 
-# This section must follow AC_INIT
+# Also see 
+#   https://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
 #
-# See https://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
-#
-# The libtool version number is not normally the component version number.
+# The libtool version number is not normally the package version number.
 # Serialized, libtool's version-info consists of one to three numbers, 
-# CURRENT:REVISION[:AGE].  CURRENT is the interface version number.
-# Conventionally CURRENT is incremented before each public releast, except 
-# that where interfaces have only been added, CURRENT is unchanged and 
-# REVISION and AGE areincremented.  CURRENT is also incremented if any 
-# interfaces have been changed or removed, in which case, REVISION and AGE 
-# are zeroed.  If AGE is non-zero, the library implements all interfaces 
-# between CURRENT - AGE and CURRENT, inclusive.
+# CURRENT[:REVISION[:AGE]].  CURRENT is the interface version number.
+# Conventionally version information is only updated before a public releast.
+# Rules: (1) If the library source code has been changed at all, increment
+# the revision number.  (2) If any interfaces have been added, removed, or
+# changed, increment CURRENT and set REVISION to zero.  (3) If any interfaces
+# have been added, increment AGE except that (4) if any interfaces have been
+# removed or changed, set AGE to zero.
 # 
-# Given these rules, AGE may not exceed CURRENT.
+# Given these rules, it should be obvious that AGE may not exceed CURRENT.
+# 
+# The Linux library file names are determined by these numbers.  They are
+#   (a) libhamt.so.CURRENT-AGE.AGE.REVISION
+#   (b) libhamt.so.CURRENT-AGE
+#   (c) libhamt.so
+# If for example CURRENT=5, REVISION=3, and AGE=1, then the library 
+# names will be 
+#   (a) libhamt.so.4.1.3
+#   (b) libhamt.so.4
+#   (c) libhamt.so
 #
-# SET THE LIBRARY VERSION HERE:
-HAMT_CURRENT='0'    # increment if interface changed or deleted, zero others
-HAMT_REVISION='0'   # increment revision and age if interface added and
-HAMT_AGE='0'        #   none changed or deleted
+# SET THE LIBRARY VERSION INFO HERE: ######################
+HAMT_CURRENT=0
+HAMT_REVISION=0
+HAMT_AGE=0
+# #########################################################
 
-HAMT_LD_VERSION="$HAMT_CURRENT:$HAMT_REVISION:$HAMT_AGE"
+HAMT_LD_VERSION=$HAMT_CURRENT:$HAMT_REVISION:$HAMT_AGE
 AC_SUBST([HAMT_LD_VERSION])
 
-# XXX PLAYING AROUND XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-# works
-GEEP2='geep2'
-AC_SUBST([GEEP2]) 
-
-# works
-GEEP3="geep3"
-AC_SUBST(GEEP3)
-
-# This works:
-GEEP4='geep4 value'
-AC_SUBST([GEEP4])
-
-# works
-AC_SUBST([GEEP5], [geep5 value])
-
-# works
-GEEP7=[geep7]
-AC_SUBST(m4_toupper(GEEP7))
-# XXX END PLAY  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# END LIBRARY VERSIONING ############################################
 
 # make sure we are in the right directory
 AC_CONFIG_SRCDIR([config.h.in])
@@ -74,8 +92,8 @@ LT_INIT()
 AC_CONFIG_MACRO_DIR([m4])
 AC_PROG_MAKE_SET
 
-# Dropped -Werror, warnings treated as errors
-AM_INIT_AUTOMAKE([-Wall foreign 1.11.2])
+# -Werror means warnings treated as errors
+AM_INIT_AUTOMAKE([-Wall -Werror foreign 1.11.2])
 
 # Checks for programs.
 AC_PROG_CC

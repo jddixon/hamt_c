@@ -1,0 +1,7 @@
+hamt_c/CHANGES
+SLOC figures are ANSI C totals only 
+---------------------------------------------------------------------
+
+v0.0.0
+    2014-12-10
+        * both library and package versioning work              * SLOC   24 

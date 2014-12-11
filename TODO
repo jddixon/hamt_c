@@ -1,7 +1,7 @@
 hamt_c/TODO
 
 2014-12-09
-    * update ~/dev/update_project_gitignore
+    * update ~/dev/update_project_gitignore                             * DONE
     * FIX: HAMT_LD_VERSION is empty string, so linking fails            * DONE
 
 2014-12-08

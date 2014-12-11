@@ -223,12 +223,6 @@ ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 FGREP = @FGREP@
-GEEP1 = @GEEP1@
-GEEP2 = @GEEP2@
-GEEP3 = @GEEP3@
-GEEP4 = @GEEP4@
-GEEP5 = @GEEP5@
-GEEP7 = @GEEP7@
 GREP = @GREP@
 HAMT_LD_VERSION = @HAMT_LD_VERSION@
 INSTALL = @INSTALL@
@@ -322,6 +316,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 SUBDIRS = src . doc examples man scripts tests
+
+# look for extra macros here
 ACLOCAL_AMFLAGS = -I m4
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
