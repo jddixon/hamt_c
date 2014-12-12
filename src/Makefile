@@ -257,17 +257,17 @@ OTOOL64 =
 PACKAGE = hamt
 PACKAGE_BUGREPORT = hamt-dev at xlattice dot org
 PACKAGE_NAME = hamt
-PACKAGE_STRING = hamt 1.3.3
+PACKAGE_STRING = hamt 0.0.0
 PACKAGE_TARNAME = hamt
 PACKAGE_URL = 
-PACKAGE_VERSION = 1.3.3
+PACKAGE_VERSION = 0.0.0
 PATH_SEPARATOR = :
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = strip
-VERSION = 1.3.3
+VERSION = 0.0.0
 abs_builddir = /home/jdd/dev/c/hamt_c/src
 abs_srcdir = /home/jdd/dev/c/hamt_c/src
 abs_top_builddir = /home/jdd/dev/c/hamt_c
@@ -323,7 +323,7 @@ top_builddir = ..
 top_srcdir = ..
 
 # flags to pass to the C compiler and linker
-# dropped --pedantic
+# dropped --pedantic because its meaning differs between gcc and Solaris
 AM_CFLAGS = -Wall -std=c99 -O2
 
 # list of libraries to build

@@ -1,5 +1,5 @@
 # flags to pass to the C compiler and linker
-# dropped --pedantic
+# dropped --pedantic because its meaning differs between gcc and Solaris
 AM_CFLAGS = -Wall -std=c99 -O2
 
 bin_PROGRAMS = main

@@ -92,6 +92,9 @@ LT_INIT()
 AC_CONFIG_MACRO_DIR([m4])
 AC_PROG_MAKE_SET
 
+# Possibly add gnits or --gnits; see
+#   http://www.gnu.org/software/automake/manual/html_node/Gnits.html
+
 # -Werror means warnings treated as errors
 AM_INIT_AUTOMAKE([-Wall -Werror foreign 1.11.2])
 

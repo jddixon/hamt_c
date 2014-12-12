@@ -1,5 +1,6 @@
 # flags to pass to the C compiler and linker
-CFLAGS = --pedantic -Wall -std=c99 -O2
+# don't include --pedantic because it is ambiguous (gcc != Solaris)
+CFLAGS = -Wall -std=c99 -O2
 LDFLAGS = -lm
 
 TESTS = check_hamt

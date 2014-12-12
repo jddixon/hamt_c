@@ -377,7 +377,8 @@ CC = gcc
 CCDEPMODE = depmode=gcc3
 
 # flags to pass to the C compiler and linker
-CFLAGS = --pedantic -Wall -std=c99 -O2
+# don't include --pedantic because it is ambiguous (gcc != Solaris)
+CFLAGS = -Wall -std=c99 -O2
 CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
@@ -423,17 +424,17 @@ OTOOL64 =
 PACKAGE = hamt
 PACKAGE_BUGREPORT = hamt-dev at xlattice dot org
 PACKAGE_NAME = hamt
-PACKAGE_STRING = hamt 1.3.3
+PACKAGE_STRING = hamt 0.0.0
 PACKAGE_TARNAME = hamt
 PACKAGE_URL = 
-PACKAGE_VERSION = 1.3.3
+PACKAGE_VERSION = 0.0.0
 PATH_SEPARATOR = :
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = strip
-VERSION = 1.3.3
+VERSION = 0.0.0
 abs_builddir = /home/jdd/dev/c/hamt_c/tests
 abs_srcdir = /home/jdd/dev/c/hamt_c/tests
 abs_top_builddir = /home/jdd/dev/c/hamt_c
