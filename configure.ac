@@ -42,7 +42,7 @@ m4_define([hamt_version],
 # This must be called before doing anything that produces output, and
 # so before any AC_SUBST
 
-AC_INIT([hamt], [hamt_version], [hamt-dev at xlattice dot org])
+AC_INIT([hamt], [hamt_version], [hamt-c-dev at xlattice dot org])
 
 # LIBRARY VERSIONING ################################################
 # 
