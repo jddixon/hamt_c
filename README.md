@@ -1,6 +1,8 @@
 # hamt_c
 
-A C implementation of the HAMT data structure.
+A C implementation of the HAMT data structure.  This is a translation
+of the Golang (Go programming language) 
+[htmt_go github project](https://jddixon.github.io/hamt_go)
 
 A Hash Array Mapped Trie ([HAMT][bagwell2001]) 
 provides fast and memory-efficient access to large amounts of data held 

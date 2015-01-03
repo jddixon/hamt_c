@@ -1,5 +1,9 @@
 hamt_c/TODO
 
+2014-12-31
+    * README.md and ghpDOc/index.md are more recent than the github
+        pages (gh-pages); need to be updated
+
 2014-12-09
     * update ~/dev/update_project_gitignore                             * DONE
     * FIX: HAMT_LD_VERSION is empty string, so linking fails            * DONE
