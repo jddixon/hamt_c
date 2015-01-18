@@ -1,4 +1,5 @@
-# hamt_c
+hamt_c
+======
 
 A C implementation of the HAMT data structure.  This is a translation
 of the Golang (Go programming language) 
@@ -87,6 +88,7 @@ These figures were obtained from *single-threaded* tests.
 
 [wiki-swar]: http://en.wikipedia.org/wiki/SWAR
 
-## On-line Documentation
 
-More information on the **hamt_c** project can be found [here](https://jddixon.github.io/hamt_c)
+## On-line Documentation
+More information on the **hamt_c** project can be found 
+[here](https://jddixon.github.io/hamt_c)
