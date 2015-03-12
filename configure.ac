@@ -87,9 +87,10 @@ AC_CONFIG_SRCDIR([config.h.in])
 AC_CONFIG_HEADERS([config.h])
 
 AM_PROG_AR
+AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_AUX_DIR([config])
 LT_INIT()
 
-AC_CONFIG_MACRO_DIR([m4])
 AC_PROG_MAKE_SET
 
 # Possibly add gnits or --gnits; see

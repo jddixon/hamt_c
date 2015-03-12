@@ -83,7 +83,7 @@ host_triplet = x86_64-unknown-linux-gnu
 bin_PROGRAMS = main$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
-	$(top_srcdir)/depcomp $(include_HEADERS)
+	$(top_srcdir)/config/depcomp $(include_HEADERS)
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
 	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
@@ -152,7 +152,7 @@ am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERBOSITY))
 am__v_at_0 = @
 am__v_at_1 = 
 DEFAULT_INCLUDES = -I. -I$(top_builddir)
-depcomp = $(SHELL) $(top_srcdir)/depcomp
+depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
@@ -208,7 +208,7 @@ AR = ar
 AUTOCONF = autoconf
 AUTOHEADER = autoheader
 AUTOMAKE = automake-1.14
-AWK = mawk
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -255,7 +255,7 @@ OBJEXT = o
 OTOOL = 
 OTOOL64 = 
 PACKAGE = hamt
-PACKAGE_BUGREPORT = hamt-dev at xlattice dot org
+PACKAGE_BUGREPORT = hamt-c-dev at xlattice dot org
 PACKAGE_NAME = hamt
 PACKAGE_STRING = hamt 0.0.0
 PACKAGE_TARNAME = hamt

@@ -149,7 +149,7 @@ AR = ar
 AUTOCONF = autoconf
 AUTOHEADER = autoheader
 AUTOMAKE = automake-1.14
-AWK = mawk
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -196,7 +196,7 @@ OBJEXT = o
 OTOOL = 
 OTOOL64 = 
 PACKAGE = hamt
-PACKAGE_BUGREPORT = hamt-dev at xlattice dot org
+PACKAGE_BUGREPORT = hamt-c-dev at xlattice dot org
 PACKAGE_NAME = hamt
 PACKAGE_STRING = hamt 0.0.0
 PACKAGE_TARNAME = hamt

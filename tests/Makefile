@@ -81,7 +81,7 @@ TESTS = check_hamt$(EXEEXT)
 check_PROGRAMS = check_hamt$(EXEEXT)
 subdir = tests
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
-	$(top_srcdir)/test-driver
+	$(top_srcdir)/config/test-driver
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
 	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
@@ -346,7 +346,7 @@ RECHECK_LOGS = $(TEST_LOGS)
 AM_RECURSIVE_TARGETS = check recheck
 TEST_SUITE_LOG = test-suite.log
 TEST_EXTENSIONS =  .test
-LOG_DRIVER = $(SHELL) $(top_srcdir)/test-driver
+LOG_DRIVER = $(SHELL) $(top_srcdir)/config/test-driver
 LOG_COMPILE = $(LOG_COMPILER) $(AM_LOG_FLAGS) $(LOG_FLAGS)
 am__set_b = \
   case '$@' in \
@@ -361,7 +361,7 @@ am__set_b = \
 am__test_logs1 = $(TESTS:=.log)
 am__test_logs2 = $(am__test_logs1:.log=.log)
 TEST_LOGS = $(am__test_logs2:.test.log=.log)
-TEST_LOG_DRIVER = $(SHELL) $(top_srcdir)/test-driver
+TEST_LOG_DRIVER = $(SHELL) $(top_srcdir)/config/test-driver
 TEST_LOG_COMPILE = $(TEST_LOG_COMPILER) $(AM_TEST_LOG_FLAGS) \
 	$(TEST_LOG_FLAGS)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -372,7 +372,7 @@ AR = ar
 AUTOCONF = autoconf
 AUTOHEADER = autoheader
 AUTOMAKE = automake-1.14
-AWK = mawk
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 
@@ -422,7 +422,7 @@ OBJEXT = o
 OTOOL = 
 OTOOL64 = 
 PACKAGE = hamt
-PACKAGE_BUGREPORT = hamt-dev at xlattice dot org
+PACKAGE_BUGREPORT = hamt-c-dev at xlattice dot org
 PACKAGE_NAME = hamt
 PACKAGE_STRING = hamt 0.0.0
 PACKAGE_TARNAME = hamt

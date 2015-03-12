@@ -1,10 +1,13 @@
 hamt_c/TODO
 
 2015-02-12
+    * move into config/ any of the following which exist:               * DONE
+        compile, config.guess, config.sub, depcomp, install-sh          * DONE
+        ltmain.sh, missing                                              * DONE
+2015-02-12
     * rework autotools stuff along the same lines as fusegen
-        - add COPYING and COPYING.LESSER, just in case, with 
-            explanation in README.licenses
-
+        - add COPYING and COPYING.LESSER, just in case, with            * DONE
+            explanation in README.licenses                              * DONE
 2014-12-31
     * README.md and ghpDOc/index.md are more recent than the github     * DONE
         pages (gh-pages); need to be updated                            * DONE

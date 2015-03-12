@@ -80,8 +80,15 @@ host_triplet = x86_64-unknown-linux-gnu
 subdir = .
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure $(am__configure_deps) \
-	$(srcdir)/config.h.in TODO ar-lib compile config.guess \
-	config.sub depcomp install-sh missing ltmain.sh
+	$(srcdir)/config.h.in AUTHORS COPYING COPYING.LESSER ChangeLog \
+	INSTALL NEWS README TODO ar-lib config/ar-lib config/compile \
+	config/config.guess config/config.sub config/depcomp \
+	config/install-sh config/missing config/ltmain.sh \
+	$(top_srcdir)/config/ar-lib $(top_srcdir)/config/compile \
+	$(top_srcdir)/config/config.guess \
+	$(top_srcdir)/config/config.sub \
+	$(top_srcdir)/config/install-sh $(top_srcdir)/config/ltmain.sh \
+	$(top_srcdir)/config/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
 	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
@@ -201,7 +208,7 @@ AR = ar
 AUTOCONF = autoconf
 AUTOHEADER = autoheader
 AUTOMAKE = automake-1.14
-AWK = mawk
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -248,7 +255,7 @@ OBJEXT = o
 OTOOL = 
 OTOOL64 = 
 PACKAGE = hamt
-PACKAGE_BUGREPORT = hamt-dev at xlattice dot org
+PACKAGE_BUGREPORT = hamt-c-dev at xlattice dot org
 PACKAGE_NAME = hamt
 PACKAGE_STRING = hamt 0.0.0
 PACKAGE_TARNAME = hamt
