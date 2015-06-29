@@ -9,31 +9,31 @@ AC_PREREQ([2.69])
 # generally much less frequently.
 
 # The minor version number should be stepped whenever the interface changes, 
-# and the micro number is then set to zero.  That is, this can be seen as
+# and the decimal number is then set to zero.  That is, this can be seen as
 # a count of minor revisions to the current API.
 #
 # Where bug fixes and other code changes do not affect the package interface, 
-# the minor version number is left unchanged and the micro number is stepped.
-# In other words, the micro version number can usually be interpreted as a 
+# the minor version number is left unchanged and the decimal number is stepped.
+# In other words, the decimal version number can usually be interpreted as a 
 # count of bugs found in the current revision.
 # 
 # When there is a major change to the package API the major version number is 
-# incremented and the minor and micro version numbers are set to zero.
+# incremented and the minor and decimal version numbers are set to zero.
 
 # SET THE PACKAGE VERSION HERE ############################
 m4_define([hamt_major_version],[0])
 m4_define([hamt_minor_version],[0])
-m4_define([hamt_micro_version],[0])
+m4_define([hamt_decimal_version],[1])
 # #########################################################
 
 m4_define([hamt_version],
-          [hamt_major_version.hamt_minor_version.hamt_micro_version])
+          [hamt_major_version.hamt_minor_version.hamt_decimal_version])
 
 # This approach doesn't work --------------------
 # HAMT_MAJOR_VERSION=1
 # HAMT_MINOR_VERSION=2
-# HAMT_MICRO_VERSION=3
-# hv = $HAMT_MAJOR_VERSION.$HAMT_MINOR_VERSION.$HAMT_MICRO_VERSION
+# HAMT_DECIMAL_VERSION=3
+# hv = $HAMT_MAJOR_VERSION.$HAMT_MINOR_VERSION.$HAMT_DECIMAL_VERSION
 # hamt_version = '$hv'
 # END not yet -----------------------------------
 
