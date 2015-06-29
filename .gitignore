@@ -1,13 +1,15 @@
-.committed
-CVS
 junk*
+.committed
+.localgitignore
 .merkle
 .posted
 .sharedev
 .svn*
 *.swp
 .wrapped
+CVS
 *ZZZ
+*~
 autom4te.cache
 *.a
 .deps
@@ -15,4 +17,3 @@ autom4te.cache
 .libs
 .lo
 *.o
-*~

@@ -8,6 +8,10 @@
 #include <stdio.h>
 #include <stdlib.h>         // for malloc, free, etc
 
+
+extern uint32_t VERSION;
+extern const char *VERSION_DATE;
+
 // const.go ---------------------------------------------------------
 #define MAX_W (uint64_t(6))
 

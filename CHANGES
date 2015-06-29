@@ -2,6 +2,9 @@ hamt_c/CHANGES
 SLOC figures are ANSI C totals only 
 ---------------------------------------------------------------------
 
+v0.0.1
+    2015-06-29
+        * update .gitignore, hamt.h; add countem, version.c     * SLOC  167
 v0.0.0
     2014-12-11
         * versioning documented                                 * SLOC   24

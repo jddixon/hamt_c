@@ -1,0 +1,4 @@
+pySloc -vC c:txt \
+    bash:countem        \
+    txt:configure.ac
+
