@@ -13,9 +13,9 @@
 
 <p>A C implementation of the HAMT data structure.  This is a translation
 of the Golang (Go programming language)
-<a href="https://jddixon.github.io/hamt_go">htmt_go github project</a></p>
+<a href="https://jddixon.github.io/hamt_go">htmt_go github project.</a></p>
 
-<p>A Hash Array Mapped Trie (<a href="http://infoscience.epfl.ch/record/64398/files/idealhashtrees.pdf">HAMT</a>)
+<p>A <strong>Hash Array Mapped Trie</strong> (<a href="http://infoscience.epfl.ch/record/64398/files/idealhashtrees.pdf"><em>HAMT</em></a>)
 provides fast and memory-efficient access to large amounts of data held
 in memory.  Values are stored by <strong>key</strong>.  All HAMT keys are mapped into
 fixed length unsigned integers. In this implementation these are 64 bits
@@ -26,7 +26,7 @@ pointer to a data structure of interest.</p>
 are either tables or leaf entries.</p>
 
 <p>In a simpler implementation at each level there is either a leaf node
-or a table with up to <code>2^w</code> slots, where w is a small
+or a table with up to <code>2^w</code> slots, where <code>w</code> is a small
 integer.  The next <code>w</code> bits of the hash
 derived from the key are construed as an index into that table.  The
 table grows dynamically as entries are added.  Whenever there is a
@@ -36,11 +36,11 @@ recursing in the process.</p>
 
 <p>The current Go implementation has been tested with values of
 3, 4, 5, and 6 for <code>w</code>.  Preliminary performance tests indicate
-that <code>w=5</code> is optimal.  That is, a table with 32 slots gives the best
+that <code>w=6</code> is optimal.  That is, a table with 64 slots gives the best
 performance.</p>
 
 <p>An enhancement introduces a fixed size table at the root.  This is
-characterized by another small integer t: the root has 2^t entries
+characterized by another small integer <code>t</code>: the root has 2^t entries
 and the table at the root is indexed by the first t bits of the
 key&rsquo;s hashcode.  Go language erformance tests show that for optimal performance
 the root table should approach the total number of entries in size.</p>
@@ -61,13 +61,14 @@ necessary locking.</p></li>
 
 <li><p>the HAMT algorithm depends upon bit-counting.  On modern Intel and AMD
 processors this
-can be done using a specific machine-language instruction, POPCNT.  The current
+can be done using a specific machine-language instruction, <code>POPCNT</code>.  The current
 implementation of hamt_c emulates this in software using the
 <a href="http://en.wikipedia.org/wiki/SWAR">SWAR</a> algorithm,  The emulation code is on the order of ten times
 slower than the machine instruction.<br />
-<em>In practice POPCNT emulation might slow down accesses by something like 10%,
+<em>In practice <code>POPCNT</code> emulation might slow down accesses by something like 10%,
 because the emulation code simply is not run all that often.</em>
-<em>This is of course not actually a limitation, but rather an observation: the HAMT alorithm runs faster with hardware support.</em></p></li>
+<em>This is of course not actually a limitation, but rather an observation: the
+HAMT algorithm runs faster with hardware support.</em></p></li>
 </ul>
 
 <h2>Project Status</h2>
