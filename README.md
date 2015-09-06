@@ -1,11 +1,10 @@
-hamt_c
-======
+# hamt_c
 
 A C implementation of the HAMT data structure.  This is a translation
 of the Golang (Go programming language) 
-[htmt_go github project](https://jddixon.github.io/hamt_go)
+[htmt_go github project.](https://jddixon.github.io/hamt_go)
 
-A Hash Array Mapped Trie ([HAMT][bagwell2001]) 
+A **Hash Array Mapped Trie** ([*HAMT*][bagwell2001]) 
 provides fast and memory-efficient access to large amounts of data held 
 in memory.  Values are stored by **key**.  All HAMT keys are mapped into 
 fixed length unsigned integers. In this implementation these are 64 bits
@@ -16,7 +15,7 @@ The HAMT trie is essentially a prefix trie where the nodes in the tree
 are either tables or leaf entries.
 
 In a simpler implementation at each level there is either a leaf node
-or a table with up to `2^w` slots, where w is a small 
+or a table with up to `2^w` slots, where `w` is a small 
 integer.  The next `w` bits of the hash 
 derived from the key are construed as an index into that table.  The
 table grows dynamically as entries are added.  Whenever there is a 
@@ -26,11 +25,11 @@ recursing in the process.
 
 The current Go implementation has been tested with values of
 3, 4, 5, and 6 for `w`.  Preliminary performance tests indicate 
-that `w=5` is optimal.  That is, a table with 32 slots gives the best
+that `w=6` is optimal.  That is, a table with 64 slots gives the best
 performance.  
 
 An enhancement introduces a fixed size table at the root.  This is
-characterized by another small integer t: the root has 2^t entries
+characterized by another small integer `t`: the root has 2^t entries
 and the table at the root is indexed by the first t bits of the
 key's hashcode.  Go language erformance tests show that for optimal performance
 the root table should approach the total number of entries in size.
@@ -50,13 +49,14 @@ necessary locking.
 
 * the HAMT algorithm depends upon bit-counting.  On modern Intel and AMD 
 processors this 
-can be done using a specific machine-language instruction, POPCNT.  The current
+can be done using a specific machine-language instruction, `POPCNT`.  The current
 implementation of hamt_c emulates this in software using the 
 [SWAR][wiki-swar] algorithm,  The emulation code is on the order of ten times
 slower than the machine instruction.  
-*In practice POPCNT emulation might slow down accesses by something like 10%, 
+*In practice `POPCNT` emulation might slow down accesses by something like 10%, 
 because the emulation code simply is not run all that often.*
-*This is of course not actually a limitation, but rather an observation: the HAMT alorithm runs faster with hardware support.*
+*This is of course not actually a limitation, but rather an observation: the 
+HAMT algorithm runs faster with hardware support.*
 
 ## Project Status
 

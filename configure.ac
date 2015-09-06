@@ -23,7 +23,7 @@ AC_PREREQ([2.69])
 # SET THE PACKAGE VERSION HERE ############################
 m4_define([hamt_major_version],[0])
 m4_define([hamt_minor_version],[0])
-m4_define([hamt_decimal_version],[1])
+m4_define([hamt_decimal_version],[2])
 # #########################################################
 
 m4_define([hamt_version],
