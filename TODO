@@ -1,5 +1,10 @@
 hamt_c/TODO
 
+2015-09-05
+    * confirm that the go implemtation is optimal at w=64
+    * and that the table dynamically resizes itself as entries are
+        added (that is, that the bit map works correctly)
+
 2015-02-12
     * move into config/ any of the following which exist:               * DONE
         compile, config.guess, config.sub, depcomp, install-sh          * DONE

@@ -2,11 +2,15 @@ hamt_c/CHANGES
 SLOC figures are ANSI C totals only 
 ---------------------------------------------------------------------
 
+v0.0.2
+    2015-09-05
+        * correct factual error in README/index (w==6 is optimal)
+        * trivial improvements to documentation formatting          SLOC  166
 v0.0.1
     2015-06-29
-        * update .gitignore, hamt.h; add countem, version.c     * SLOC  167
+        * update .gitignore, hamt.h; add countem, version.c         SLOC  167
 v0.0.0
     2014-12-11
-        * versioning documented                                 * SLOC   24
+        * versioning documented                                     SLOC   24
     2014-12-10
-        * both library and package versioning work              * SLOC   24 
+        * both library and package versioning work                  SLOC   24 

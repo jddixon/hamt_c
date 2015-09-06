@@ -2,7 +2,7 @@
 
 include "hamt.h"
 
-# XXX should be DecimalVersion
+// XXX should be DecimalVersion
 
-const uint32_t VERSION      = 1;
-const char *VERSION_DATE    = "2015-06-29";
+const uint32_t VERSION      = 2;        // that is, 0.0.2
+const char *VERSION_DATE    = "2015-09-05";
