@@ -2,6 +2,9 @@ hamt_c/CHANGES
 SLOC figures are ANSI C totals only 
 ---------------------------------------------------------------------
 
+v0.0.3
+    2015-11-18
+        * correct version info                                      SLOC 166
 v0.0.2
     2015-09-05
         * correct factual error in README/index (w==6 is optimal)
