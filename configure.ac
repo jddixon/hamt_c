@@ -23,7 +23,7 @@ AC_PREREQ([2.69])
 # SET THE PACKAGE VERSION HERE ############################
 m4_define([hamt_major_version],[0])
 m4_define([hamt_minor_version],[0])
-m4_define([hamt_decimal_version],[2])
+m4_define([hamt_decimal_version],[4])
 # #########################################################
 
 m4_define([hamt_version],
@@ -42,7 +42,7 @@ m4_define([hamt_version],
 # This must be called before doing anything that produces output, and
 # so before any AC_SUBST
 
-AC_INIT([hamt], [hamt_version], [hamt-c-dev at xlattice dot org])
+AC_INIT([hamt_c], [hamt_version], [hamt-c-dev at xlattice dot org])
 
 # LIBRARY VERSIONING ################################################
 # 
