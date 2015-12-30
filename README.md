@@ -92,4 +92,4 @@ These figures were obtained from *single-threaded* tests.
 ## On-line Documentation
 
 More information on the **hamt_c** project can be found
-[here](://jddixon.github.io/hamt_c)
+[here](https://jddixon.github.io/hamt_c)
