@@ -2,6 +2,9 @@ hamt_c/CHANGES
 SLOC figures are ANSI C totals only 
 ---------------------------------------------------------------------
 
+v0.0.5
+    2016-02-24
+        * fix count, update LICENSE                                 SLOC  116
 v0.0.4
     2015-12-30
         * fix dead link                                             SLOC  166
@@ -20,3 +23,4 @@ v0.0.0
         * versioning documented                                     SLOC   24
     2014-12-10
         * both library and package versioning work                  SLOC   24 
+
