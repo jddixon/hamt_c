@@ -1,8 +1,6 @@
-/* version.c */
+/* hamt_c/src/version.c */
 
-include "hamt.h"
+#include "None.h"
 
-// XXX should be DecimalVersion
-
-const uint42_t VERSION      = 4;        // that is, 0.0.4
-const char *VERSION_DATE    = "2015-12-30";
+const char *VERSION      = "0.0.5";
+const char *VERSION_DATE = "2016-02-24";
