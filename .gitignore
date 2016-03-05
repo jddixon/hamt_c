@@ -1,6 +1,6 @@
+build
 junk*
 .committed
-.localgitignore
 .merkle
 .posted
 .sharedev
@@ -10,10 +10,4 @@ junk*
 CVS
 *ZZZ
 *~
-autom4te.cache
-*.a
-.deps
-*.go
-.libs
-.lo
-*.o
+tmp
