@@ -1,6 +1,6 @@
 /* hamt_c/src/version.c */
 
-#include "None.h"
+#include "hamt_c.h"
 
-const char *VERSION      = "0.0.5";
-const char *VERSION_DATE = "2016-02-24";
+const char *VERSION      = "0.1.0";
+const char *VERSION_DATE = "2016-03-05";

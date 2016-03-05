@@ -1,7 +1,8 @@
 hamt_c/CHANGES
-SLOC figures are ANSI C totals only 
----------------------------------------------------------------------
 
+v0.1.0
+    2016-03-05
+        * strip out autotoolsl, add skeletal waf                    SLOC   66
 v0.0.5
     2016-02-24
         * fix count, update LICENSE                                 SLOC  116
