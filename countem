@@ -1,9 +1,7 @@
 cd ~/dev/c/hamt_c
 
-pySloc -v -X "^autogen.sh$|^config$|\.go$|\.m4$|^m4$"      $@      \
+pySloc -v -L c -X "^build$|\.go$|^.waf*"      $@      \
+    txt:.gitignore.local            \
     bash:countem                    \
-    not#:configure.ac               \
-    not#:Makefile.am                \
-    not#:src/Makefile.am            \
-    not#:tests/Makefile.am          \
+    py:wscript py:src/wscript
 

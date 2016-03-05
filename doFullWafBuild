@@ -1,0 +1,2 @@
+python3 waf configure
+python3 waf configure build --static
