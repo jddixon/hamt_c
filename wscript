@@ -1,11 +1,11 @@
-# fusegen_c/wscript
+# hamt_c/wscript
    
-BASENAME = 'fusegen'
-LIBNAME  = BASENAME + 'Lib'
+BASENAME = 'hamt'
+LIBNAME  = BASENAME + 'c_lib'
 
 # waf combines these two to get the archive name
 APPNAME = BASENAME + '_c'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 top     = '.'
 out     = "build"

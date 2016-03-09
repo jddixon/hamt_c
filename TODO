@@ -1,5 +1,14 @@
 hamt_c/TODO
 
+2016-03-08
+    * waf should build tarball hamt_c_N-N-N.tar.gz
+    * executable name should be global (like VERSION)
+    * need working usage() 
+
+2016-03-06
+    * move build logic into src/wscript
+    * add -V option so that hame_c outputs version info                 * DONE
+
 2015-09-05
     * confirm that the go implemtation is optimal at w=64
     * and that the table dynamically resizes itself as entries are

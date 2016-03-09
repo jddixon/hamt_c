@@ -1,5 +1,8 @@
 hamt_c/CHANGES
 
+v0.1.1
+    2016-03-08
+        * working -V option                                         SLOC  106
 v0.1.0
     2016-03-05
         * strip out autotoolsl, add skeletal waf                    SLOC   66
