@@ -6,8 +6,7 @@
 
 
 int main (int argc, char **argv) {
-    // model is https://en.wikipedia.org/wiki/Getopt
-    //
+    
     int c;
     
     // pseudo-booleans; the static declaration eliminates an otherwise

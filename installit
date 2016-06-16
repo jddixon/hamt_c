@@ -4,8 +4,8 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/c/hamt_c
   
+  echo 'don't know how to install c yet
   
-  pySloc -L c  -X *.go -X build -X waf -X waflib -X vfmd-wscript -v $@
 else
   echo "DEV_BASE is not defined"
 fi

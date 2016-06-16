@@ -1,5 +1,8 @@
 hamt_c/CHANGES
 
+v0.1.2
+    2016-06-16
+        * add waf, .dvcz, bkp2U, other bash scripts                 SLOC  229
 v0.1.1
     2016-03-08
         * working -V option                                         SLOC  106
@@ -27,4 +30,6 @@ v0.0.0
         * versioning documented                                     SLOC   24
     2014-12-10
         * both library and package versioning work                  SLOC   24 
+
+
 

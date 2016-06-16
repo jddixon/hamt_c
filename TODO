@@ -2,6 +2,7 @@ hamt_c/TODO
 
 2016-03-08
     * waf should build tarball hamt_c_N-N-N.tar.gz
+        - ie installit script uses waf to build tarball in dist/
     * executable name should be global (like VERSION)
     * need working usage() 
 
