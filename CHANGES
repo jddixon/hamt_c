@@ -1,5 +1,8 @@
 hamt_c/CHANGES
 
+v0.1.4
+    2016-09-25
+        * standardize licensing                                     SLOC 1329
 v0.1.3
     2016-06-23
         * add ghpDoc/{css,img}/                                     SLOC  709
@@ -33,6 +36,7 @@ v0.0.0
         * versioning documented                                     SLOC   24
     2014-12-10
         * both library and package versioning work                  SLOC   24 
+
 
 
 
