@@ -2,8 +2,8 @@
 project:hamt_c
 package:hamt_c
 mainlang:c
-version:0.1.2
-versionDate:2016-06-16
+version:0.1.3
+versionDate:2016-06-23
 :?dirs?:
 dir:std:ghpDoc
 dir:std:.dvcz
@@ -22,9 +22,8 @@ code:std:.dvczignore.local
 code:std:.gitignore
 code:std:.gitignore.local
 code:std:/var/app/sharedev/config/projCfg
-txt:std:.copyright
+txt:std:LICENSE-MIT.md
 txt:std:CHANGES
-txt:std:LICENSE.md
 txt:std:README.jdd
 txt:std:README.md
 txt:std:TODO
